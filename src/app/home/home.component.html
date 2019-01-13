@@ -1,0 +1,14 @@
+<p>{{ myuser.nick }}</p>
+<br />
+<!-- Angular directive container -->
+<h4>Logged users</h4>
+<ng-container *ngFor="let user of friends; let i = index">
+  <div *ngIf="user.logged">
+    <a routerLink = "/conversation/{{user.uid}}"> {{ i + 1 }}:{{ user.nick }}|{{ user.email }} </a>
+  </div>
+</ng-container>
+
+<h4>Offline users</h4>
+<ng-container *ngFor="let user of friends; let i = index">
+  <p *ngIf="!user.logged">{{ i + 1 }}:{{ user.nick }}|{{ user.email }}</p>
+</ng-container>
