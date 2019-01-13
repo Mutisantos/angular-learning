@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../interfaces/user';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -10,38 +11,11 @@ export class HomeComponent implements OnInit {
   friends: User[];
   myuser: User;
 
-  constructor() {
+  constructor(private userService:UserService) {
     // this.typeExercise();
-    const myuser: User = {
-      nick: 'muti',
-      age: 25,
-      email: 'mutisantos@gmail.com',
-      uid: '99'
-    };
-
-    const f1: User = {
-      nick: 'AAA',
-      age: 25,
-      email: 'asdasd@gmail.com',
-      uid: '3'
-    };
-    const f2: User = {
-      nick: '2311',
-      age: 25,
-      email: '21313@gmail.com',
-      uid: '2',
-      logged: false
-    };
-    const f3: User = {
-      nick: 'mmmm',
-      age: 25,
-      email: 'mmmm@gmail.com',
-      uid: '1',
-      logged: true
-    };
-    this.friends = [];
-    this.friends.push(f1, f2, f3);
-    this.myuser = myuser;
+    //Get the friends data from a service instead of hard-codding it
+    this.friends = userService.getFriends();
+    this.myuser = userService.getMyUser();
   }
 
   typeExercise() {
