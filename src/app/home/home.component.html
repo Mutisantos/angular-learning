@@ -1,14 +1,15 @@
-<p>{{ myuser.nick }}</p>
+<p>Welcome:{{ myuser.nick }}</p>
+<!-- nModel takes a variable and detects and show changes -->
 <br />
 <!-- Angular directive container -->
 <h4>Logged users</h4>
-<ng-container *ngFor="let user of friends; let i = index">
-  <div *ngIf="user.logged">
+<input type=text placeholder="Search Friend" [(ngModel)]="query">
+<br />
+<!-- Pipes can also be used in ng parameters (friends)|(search) and use class attributes (query) -->
+<ng-container *ngFor="let user of friends | search : query; let i = index">
+  <!-- <div *ngIf="user.logged"> -->
     <a routerLink = "/conversation/{{user.uid}}"> {{ i + 1 }}:{{ user.nick }}|{{ user.email }} </a>
-  </div>
+    <br/>
+    <!-- </div> -->
 </ng-container>
 
-<h4>Offline users</h4>
-<ng-container *ngFor="let user of friends; let i = index">
-  <p *ngIf="!user.logged">{{ i + 1 }}:{{ user.nick }}|{{ user.email }}</p>
-</ng-container>
