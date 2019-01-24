@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { MenuComponent } from './menu/menu.component';
 import { SearchPipe } from './pipes/search';
 import {FormsModule} from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import {FormsModule} from '@angular/forms';
     ConversationComponent,
     ProfileComponent,
     MenuComponent, 
-    SearchPipe
+    SearchPipe, FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -4,13 +4,21 @@
   <br />
   <!-- Angular directive container -->
   <h4>Logged users</h4>
-  <input type=text placeholder="Search Friend" [(ngModel)]="query">
-  <br />
+  <input type="text" placeholder="Search Friend" [(ngModel)]="query" /> <br />
   <!-- Pipes can also be used in ng parameters (friends)|(search) and use class attributes (query) -->
-  <ng-container *ngFor="let user of friends | search : query; let i = index">
-    <!-- <div *ngIf="user.logged"> -->
-    <a routerLink="/conversation/{{user.uid}}"> {{ i + 1 }}:{{ user.nick }}|{{ user.email }} </a>
-    <br/>
-    <!-- </div> -->
-  </ng-container>
+  <div class="collection">
+    <ng-container *ngFor="let user of (friends | search: query); let i = index">
+      <!-- <div *ngIf="user.logged"> -->
+      <a routerLink="/conversation/{{ user.uid }}" class="collection-item">
+        <img 
+            id="user-status"
+            src="assets/img/logo_live_{{ user.status }}.png"
+            alt="user status"
+        />
+
+        {{ i + 1 }}:{{ user.nick }}|{{ user.email }}
+      </a>
+      <!-- </div> -->
+    </ng-container>
+  </div>
 </div>

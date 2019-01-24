@@ -1,3 +1,5 @@
+export type status  = 'online' | 'away' | 'busy' | 'offline' ;
+
 export interface User {
     nick: string;
     age: number;
@@ -6,4 +8,5 @@ export interface User {
     // non mandatory fields use a "?" at the end of their name
     logged?: boolean;
     subnick?: string;
+    status: status;
 }

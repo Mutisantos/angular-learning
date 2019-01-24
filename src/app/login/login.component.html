@@ -1,3 +1,48 @@
-<p>
-  login works!
-</p>
+<div class="loginContainer blue accent-1">
+  <br />
+  <div class="container">
+    <div class="row">
+      <div class="col s12 center-align">
+        <div class="avatarFrameOffline ">
+          <img
+            class="responsive-img blue accent-3 circle "
+            src="assets/img/generic_avatar.png"
+          />
+        </div>
+        <div class="col s12 center-align"><h3>Iniciar Sesión</h3></div>
+        <p class="waves-effect waves-teal btn-flat">¿Ya tienes cuenta? Has <a (click)="operation = 'login'">Login</a></p>
+        <p class="waves-effect waves-teal btn-flat">¿No tienes cuenta? <a (click)="operation = 'signup'">Registrarse</a></p>
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12 m12 l12">
+              <input id="email" type="email" class="validate " />
+              <label for="email" class ="active">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="password" type="password" class="validate" />
+              <label for="password" class ="active">Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div *ngIf="operation =='signup'" class="input-field col s12">
+              <input id="nickname" type="text" class="validate" />
+              <label for="nickname" class ="active">Nickname</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s4">
+                <a class="waves-effect waves-light btn blue">Iniciar Sesión</a>
+            </div>
+            <div *ngIf="operation =='signup'" class="offset-s4 col s4">
+                <a class="waves-effect waves-light btn blue">Registrarse</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row"><div class="col s12 center-align"></div></div>
+  </div>
+  <br />
+</div>
