@@ -1,0 +1,49 @@
+<div class="homeContainer cyan lighten-2">
+  
+  <div class="cyan lighten-1">
+    <div class="homeHeadContainer">
+      <div class="row">
+        <div class="col">
+          <!-- <div class="avatarFrameOnLine"> -->
+            <img class="responsive-img circle avatarFrameOnLine" src="assets/img/generic_avatar.png" id="homeAvatarPicture" />
+          <!-- </div> -->
+        </div>
+        <div class="col">
+          <b>{{ myuser.nick }}</b>
+          <div>
+            <span>Online</span>
+            <br />
+            <span>Escribe un mensaje personal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="container">
+    <!-- nModel takes a variable and detects and show changes -->
+    <br />
+    <!-- Angular directive container -->
+    <h5>Contacts</h5>
+    <input type="text" placeholder="Search Friend" [(ngModel)]="query" /> <br />
+    <!-- Pipes can also be used in ng parameters (friends)|(search) and use class attributes (query) -->
+    <div class="collection">
+      <ng-container
+        *ngFor="let user of (friends | search: query); let i = index"
+      >
+        <!-- <div *ngIf="user.logged"> -->
+        <a routerLink="/conversation/{{ user.uid }}" class="collection-item">
+          <img
+            id="user-status"
+            src="assets/img/logo_live_{{ user.status }}.png"
+            alt="user status"
+          />
+
+          {{ i + 1 }}:{{ user.nick }}|{{ user.email }}
+        </a>
+        <!-- </div> -->
+      </ng-container>
+    </div>
+  </div>
+  <br />
+</div>
