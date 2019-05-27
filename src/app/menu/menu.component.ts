@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { Router } from '@angular/router';
+=======
+>>>>>>> ffab0ca5f2c1d4f60a47a9b48b8232b5c240ba4a
 
 @Component({
   selector: 'app-menu',
@@ -7,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu.component.sass']
 })
 export class MenuComponent implements OnInit {
+<<<<<<< HEAD
   color: string;
   href: string;
   constructor(private router: Router) {
@@ -31,4 +35,12 @@ export class MenuComponent implements OnInit {
       this.color = 'indigo lighten-3';
     }
   }
+=======
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+>>>>>>> ffab0ca5f2c1d4f60a47a9b48b8232b5c240ba4a
 }

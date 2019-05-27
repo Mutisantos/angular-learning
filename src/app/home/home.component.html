@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="homeContainer cyan lighten-2">
   
   <div class="cyan lighten-1">
@@ -46,4 +47,29 @@
     </div>
   </div>
   <br />
+=======
+<div class="container">
+  <p>Welcome:{{ myuser.nick }}</p>
+  <!-- nModel takes a variable and detects and show changes -->
+  <br />
+  <!-- Angular directive container -->
+  <h4>Logged users</h4>
+  <input type="text" placeholder="Search Friend" [(ngModel)]="query" /> <br />
+  <!-- Pipes can also be used in ng parameters (friends)|(search) and use class attributes (query) -->
+  <div class="collection">
+    <ng-container *ngFor="let user of (friends | search: query); let i = index">
+      <!-- <div *ngIf="user.logged"> -->
+      <a routerLink="/conversation/{{ user.uid }}" class="collection-item">
+        <img 
+            id="user-status"
+            src="assets/img/logo_live_{{ user.status }}.png"
+            alt="user status"
+        />
+
+        {{ i + 1 }}:{{ user.nick }}|{{ user.email }}
+      </a>
+      <!-- </div> -->
+    </ng-container>
+  </div>
+>>>>>>> ffab0ca5f2c1d4f60a47a9b48b8232b5c240ba4a
 </div>
