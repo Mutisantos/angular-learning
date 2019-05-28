@@ -8,18 +8,18 @@ import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: HomeComponent
   },
   {
     path: 'login',
-    component: LoginComponent,
+    component: LoginComponent
     // canActivate: [
     //   AuthGuard
     // ],
   },
   {
     path: 'home',
-    component: HomeComponent,
+    component: HomeComponent
     // canActivate: [
     //   AuthGuard
     // ],
@@ -29,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: 'conversation/:uid',
-    component: ConversationComponent,
+    component: ConversationComponent
     // canActivate: [
     //   AuthGuard
     // ],
@@ -39,16 +39,15 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent,
+    component: ProfileComponent
     // data:{
     //   allowedRoles:['logged']
     // }
   }
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

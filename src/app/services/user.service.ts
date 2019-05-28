@@ -11,7 +11,7 @@ export class UserService {
   friends: User[];
   myuser: User;
   constructor() {
-    let meuser: User = {
+    const meuser: User = {
       nick: 'muti',
       age: 25,
       email: 'mutisantos@gmail.com',
@@ -21,7 +21,7 @@ export class UserService {
 
     this.myuser = meuser;
 
-    let usuario1: User = {
+    const usuario1: User = {
       nick: 'Pengralle',
       age: 24,
       email: 'pen@aoe.aoe',
@@ -29,7 +29,7 @@ export class UserService {
       uid: 1,
       status: 'online'
     };
-    let usuario2: User = {
+    const usuario2: User = {
       nick: 'Flamrose',
       age: 28,
       email: 'flam@aoe.aoe',
@@ -37,7 +37,7 @@ export class UserService {
       uid: 2,
       status: 'offline'
     };
-    let usuario3: User = {
+    const usuario3: User = {
       nick: 'Piedra',
       age: 18,
       email: 'Stone@aoe.aoe',
@@ -45,7 +45,7 @@ export class UserService {
       uid: 3,
       status: 'busy'
     };
-    let usuario4: User = {
+    const usuario4: User = {
       nick: 'cosin',
       age: 17,
       email: 'cosito@aoe.aoe',
@@ -53,7 +53,7 @@ export class UserService {
       uid: 4,
       status: 'online'
     };
-    let usuario5: User = {
+    const usuario5: User = {
       nick: 'Slime',
       age: 30,
       email: 'babas@aoe.aoe',

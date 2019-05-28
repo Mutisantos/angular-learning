@@ -10,6 +10,7 @@ import { UserService } from '../services/user.service';
 export class HomeComponent implements OnInit {
   friends: User[];
   myuser: User;
+  // Define a variable that will be represented by an ngModel input
   query: string = '';
   constructor(private userService: UserService) {
     // this.typeExercise();
@@ -32,7 +33,7 @@ export class HomeComponent implements OnInit {
     // Fixed type array, it won't support other typed values
     let arregloEntero: number[] = [1, 2, 3, 4, 45];
     // Explicitly unfixed type array
-    let arragloCualquiera: any[] = [aNumber, cString, bulean, objecto];
+    let arregloCualquiera: any[] = [aNumber, cString, bulean, objecto];
     console.log(arregloMutable);
   }
 

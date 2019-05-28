@@ -1,6 +1,6 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
-// Create a pipe named 'Search'
+// Create a pipe named 'search'  that will be referenced in the HTML
 @Pipe({
     name: 'search'
 })

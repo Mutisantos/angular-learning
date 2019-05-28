@@ -1,16 +1,17 @@
-<p>
-  <!-- Angular pipe: Translates content into a target format -->
-  {{friend | json}}
-</p>
+<div>
+  <p>
+    <!-- Angular pipe: Translates content into a target format -->
+    {{ friend | json }}
+  </p>
 
-<p>
-  <!-- Format a number with minimum 2 decimal places and maximum 5 decimal places  -->
-  {{score | number: '1.2-5'}}
-</p>
+  <p>
+    <!-- Format a number with minimum 2 decimal places and maximum 5 decimal places  -->
+    {{ score | number: "1.2-5" }}
+  </p>
 
-
-<p>
-  <!-- Format a date with a DD/MM/YYYY format  -->
-  Today is: {{today | date: 'dd/MM/yyyy'}}
-  Time: {{today | date: 'fullTime'}}
-</p>
+  <p>
+    <!-- Format a date with a DD/MM/YYYY format  -->
+    Today is: {{ today | date: "dd/MM/yyyy" }} Time:
+    {{ today | date: "fullTime" }}
+  </p>
+</div>

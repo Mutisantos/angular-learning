@@ -1,4 +1,4 @@
-<div class="loginContainer blue accent-1">
+<div class="loginContainer green accent-5">
   <br />
   <div class="container">
     <div class="row">
@@ -10,51 +10,48 @@
           />
         </div>
         <div class="col s12 center-align"><h3>Iniciar Sesión</h3></div>
-<<<<<<< HEAD
-         <!-- Use the Variable operation defined in the login.component.ts to check if the user will login or signup -->
-        <p *ngIf="operation =='signup'" class="waves-effect waves-teal btn-flat">¿Ya tienes cuenta? Has <a (click)="operation = 'login'">Login</a></p>
-        <p *ngIf="operation =='login'" class="waves-effect waves-teal btn-flat">¿No tienes cuenta? <a (click)="operation = 'signup'">Registrarse</a></p>
-=======
-        <p class="waves-effect waves-teal btn-flat">¿Ya tienes cuenta? Has <a (click)="operation = 'login'">Login</a></p>
-        <p class="waves-effect waves-teal btn-flat">¿No tienes cuenta? <a (click)="operation = 'signup'">Registrarse</a></p>
->>>>>>> ffab0ca5f2c1d4f60a47a9b48b8232b5c240ba4a
+        <div class="col s12 center-align">
+          <!-- Use the Variable operation defined in the login.component.ts to check if the user will login or signup -->
+          <p
+            *ngIf="operation == 'signup'"
+            class="waves-effect waves-teal btn-flat"
+          >
+            ¿Ya tienes cuenta? Has <a (click)="operation = 'login'">Login</a>
+          </p>
+          <p
+            *ngIf="operation == 'login'"
+            class="waves-effect waves-teal btn-flat"
+          >
+            ¿No tienes cuenta? <a (click)="operation = 'signup'">Registrarse</a>
+          </p>
+        </div>
         <form class="col s12">
           <div class="row">
             <div class="input-field col s12 m12 l12">
               <input id="email" type="email" class="validate " />
-              <label for="email" class ="active">Email</label>
+              <label for="email" class="active">Email</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
               <input id="password" type="password" class="validate" />
-              <label for="password" class ="active">Password</label>
+              <label for="password" class="active">Password</label>
             </div>
           </div>
           <div class="row">
-<<<<<<< HEAD
             <!-- Use the Angular variable operation to check if the operation is Login or SignUp and condition the visibility of this div -->
-=======
->>>>>>> ffab0ca5f2c1d4f60a47a9b48b8232b5c240ba4a
-            <div *ngIf="operation =='signup'" class="input-field col s12">
+            <div *ngIf="operation == 'signup'" class="input-field col s12">
               <input id="nickname" type="text" class="validate" />
-              <label for="nickname" class ="active">Nickname</label>
+              <label for="nickname" class="active">Nickname</label>
             </div>
           </div>
           <div class="row">
-<<<<<<< HEAD
-            <div *ngIf="operation =='login'" class="col s6">
-                <a class="waves-effect waves-light btn blue">Iniciar Sesión</a>
+            <div *ngIf="operation == 'login'" class="col s6">
+              <a class="waves-effect waves-light btn">Iniciar Sesión</a>
             </div>
             <!-- Use the Angular variable operation to check if the operation is Login or SignUp and condition the visibility of this div -->
-            <div *ngIf="operation =='signup'" class="col s6">
-=======
-            <div class="col s4">
-                <a class="waves-effect waves-light btn blue">Iniciar Sesión</a>
-            </div>
-            <div *ngIf="operation =='signup'" class="offset-s4 col s4">
->>>>>>> ffab0ca5f2c1d4f60a47a9b48b8232b5c240ba4a
-                <a class="waves-effect waves-light btn blue">Registrarse</a>
+            <div *ngIf="operation == 'signup'" class="col s6">
+              <a class="waves-effect waves-light btn">Registrarse</a>
             </div>
           </div>
         </form>

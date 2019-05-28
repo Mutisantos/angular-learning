@@ -1,4 +1,4 @@
-export type status  = 'online' | 'away' | 'busy' | 'offline' ;
+export type status  = 'online' | 'away' | 'busy' | 'offline' | 0;
 
 export interface User {
     nick: string;
