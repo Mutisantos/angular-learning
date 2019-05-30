@@ -3,12 +3,10 @@
   <div class="container">
     <div class="row">
       <div class="col s12 center-align">
-        <div class="avatarFrameOffline ">
-          <img
-            class="responsive-img blue accent-3 circle "
-            src="assets/img/generic_avatar.png"
-          />
-        </div>
+        <img
+          class="responsive-img circle green darken-2"
+          src="assets/img/generic_avatar.png"
+        />
         <div class="col s12 center-align"><h3>Iniciar Sesión</h3></div>
         <div class="col s12 center-align">
           <!-- Use the Variable operation defined in the login.component.ts to check if the user will login or signup -->
@@ -46,12 +44,16 @@
             </div>
           </div>
           <div class="row">
-            <div *ngIf="operation == 'login'" class="col s6">
-              <a class="waves-effect waves-light btn">Iniciar Sesión</a>
+            <div *ngIf="operation == 'login'" class="col s12">
+              <a class="waves-effect waves-light btn col s6 offset-s3"
+                >Iniciar Sesión</a
+              >
             </div>
             <!-- Use the Angular variable operation to check if the operation is Login or SignUp and condition the visibility of this div -->
-            <div *ngIf="operation == 'signup'" class="col s6">
-              <a class="waves-effect waves-light btn">Registrarse</a>
+            <div *ngIf="operation == 'signup'" class="col s12">
+              <a class="waves-effect waves-light btn col s6 offset-s3"
+                >Registrarse</a
+              >
             </div>
           </div>
         </form>
