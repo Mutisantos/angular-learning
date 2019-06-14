@@ -1,21 +1,65 @@
 <div class="convContainer blue accent-5">
   <br />
+  <!-- 
   <div>
     <p>
-      <!-- Angular pipe: Translates content into a target format -->
+      Angular pipe: Translates content into a target format
       {{ friend | json }}
     </p>
 
     <p>
-      <!-- Format a number with minimum 2 decimal places and maximum 5 decimal places  -->
+      Format a number with minimum 2 decimal places and maximum 5 decimal places 
       {{ score | number: "1.2-5" }}
     </p>
 
     <p>
-      <!-- Format a date with a DD/MM/YYYY format  -->
+      Format a date with a DD/MM/YYYY format 
       Today is: {{ today | date: "dd/MM/yyyy" }} Time:
       {{ today | date: "fullTime" }}
     </p>
   </div>
+  -->
+  <div class="blue accent-4 row">
+    <br />
+    <div class=" maincontent col s9 ">
+      <div class="col s12 l12 m12 center">
+        <img
+          id="user-status"
+          src="assets/img/logo_live_{{ friend.status }}.png"
+        />{{ friend.nick }}
+      </div>
+      <div class="blue lighten-3 container">
+        <br />
+        <div class="row chathistory">
+        </div>
+        <div class="input-field col s12 blue lighten-4">
+          <textarea id="messagefield" class="materialize-textarea"> 
+
+
+            
+          </textarea>
+          <label for="messagefield"></label>
+        </div>
+      </div>
+    </div>
+    <div class=" maincontent col s3 blue accent-4">
+        <img
+        class="responsive-img square avatarFrameOnLine"
+        src="assets/img/generic_avatar.png"
+        id="homeAvatarPicture"
+      />
+      <br/>
+      <br/>
+      <br/>
+      <img
+      class="responsive-img square avatarFrameOnLine"
+      src="assets/img/logo_live_appear_offline.png"
+      id="homeAvatarPicture"
+    />
+    </div>
+  </div>
+  
+  <br />
+  <br />
   <br />
 </div>
