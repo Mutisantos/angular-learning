@@ -26,32 +26,32 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s12 m12 l12">
-              <input id="email" type="email" class="validate " />
+              <input [(ngModel)]="this.email" name="email" id="email" type="email" class="validate " />
               <label for="email" class="active">Email</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="password" type="password" class="validate" />
+              <input [(ngModel)]="this.password" name="password" id="password" type="password" class="validate" />
               <label for="password" class="active">Password</label>
             </div>
           </div>
           <div class="row">
             <!-- Use the Angular variable operation to check if the operation is Login or SignUp and condition the visibility of this div -->
             <div *ngIf="operation == 'signup'" class="input-field col s12">
-              <input id="nickname" type="text" class="validate" />
+              <input [(ngModel)]="this.nickname" name="nickname" id="nickname" type="text" class="validate" />
               <label for="nickname" class="active">Nickname</label>
             </div>
           </div>
           <div class="row">
             <div *ngIf="operation == 'login'" class="col s12">
-              <a class="waves-effect waves-light btn col s6 offset-s3"
+              <a (click)="login()" class="waves-effect waves-light btn col s6 offset-s3"
                 >Iniciar Sesión</a
               >
             </div>
             <!-- Use the Angular variable operation to check if the operation is Login or SignUp and condition the visibility of this div -->
             <div *ngIf="operation == 'signup'" class="col s12">
-              <a class="waves-effect waves-light btn col s6 offset-s3"
+              <a (click)="signup()" class="waves-effect waves-light btn col s6 offset-s3"
                 >Registrarse</a
               >
             </div>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../interfaces/user';
 import { UserService } from '../services/user.service';
-
+// tslint:disable:no-inferrable-types
+// tslint:disable:prefer-const
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,8 +16,8 @@ export class HomeComponent implements OnInit {
   constructor(private userService: UserService) {
     // this.typeExercise();
     // Get the friends data from a service instead of hard-codding it
-    this.friends = userService.getFriends();
-    this.myuser = userService.getMyUser();
+    // this.friends = userService.getFriends();
+    // this.myuser = userService.getMyUser();
   }
 
   typeExercise() {

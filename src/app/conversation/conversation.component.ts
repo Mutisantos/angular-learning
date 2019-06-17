@@ -19,10 +19,10 @@ export class ConversationComponent implements OnInit {
     this.friendId = this.activatedRoute.snapshot.params['uid'];
     console.log(this.friendId);
     // Retreives friend data from the Service instead of hardcoding it.
-    this.friends = userService.getFriends();
-    this.friend = this.friends.find((record) => {
-      return record.uid == this.friendId;
-    });
+    // this.friends = userService.getUsers();
+    // this.friend = this.friends.find((record) => {
+    //   return record.uid == this.friendId;
+    // });
     console.log(this.friend);
   }
 
