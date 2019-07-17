@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../interfaces/user';
 import { UserService } from '../services/user.service';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { WeatherRESTConsumerService } from '../services/weather-restconsumer.service';
+import { flatMap } from 'rxjs/operators';
+import { Weather } from '../interfaces/weather';
 // tslint:disable:no-inferrable-types
 // tslint:disable:prefer-const
 @Component({
@@ -11,12 +16,18 @@ import { UserService } from '../services/user.service';
 export class HomeComponent implements OnInit {
   friends: User[];
   myuser: User;
+  weatherData: Weather;
   // Define a variable that will be represented by an ngModel input
   query: string = '';
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private authService: AuthService,
+              private router: Router, private weatherService: WeatherRESTConsumerService) {
     // this.typeExercise();
-    // Get the friends data from a service instead of hard-codding it
-    // this.friends = userService.getFriends();
+    // Get an observable from the user registries in firebase Database, subscribe to changing values of the observable
+    userService.getUsers().valueChanges().subscribe(
+      (data: User[]) => {console.log(data); this.friends = data; },
+      (error) => {console.log(error); }
+    );
+    this.getWeatherCondition();
     // this.myuser = userService.getMyUser();
   }
 
@@ -36,6 +47,36 @@ export class HomeComponent implements OnInit {
     // Explicitly unfixed type array
     let arregloCualquiera: any[] = [aNumber, cString, bulean, objecto];
     console.log(arregloMutable);
+  }
+
+  logout() {
+    this.authService.logOut()
+    .then(
+      () => {
+        alert('Sesión Cerrada');
+        this.router.navigate(['login']);
+      }
+    )
+    .catch(
+      (error) => { console.log(error); }
+    );
+  }
+
+  private getWeatherCondition() {
+    this.weatherService.getGeoLocation().pipe(
+      flatMap (
+        (resp) => this.weatherService.getWeatherByCoord(resp.coords.latitude, resp.coords.longitude),
+      )
+    ).subscribe( // Solo se necesita suscribirse al servicio final para completar el proceso
+      (data: Weather ) => {
+        this.weatherData = data;
+        console.log(data);
+      },
+      (err) => {
+        err = ' No es posible consultar el servicio del clima en estos momentos.';
+        console.log(err);
+      }
+    );
   }
 
   ngOnInit() {}

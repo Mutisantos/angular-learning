@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ConversationComponent } from './conversation/conversation.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthenticationGuard } from './services/authentication.guard';
 
 const routes: Routes = [
   {
@@ -13,36 +14,21 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-    // canActivate: [
-    //   AuthGuard
-    // ],
   },
   {
     path: 'home',
-    component: HomeComponent
-    // canActivate: [
-    //   AuthGuard
-    // ],
-    // data: {
-    //   allowedRoles: ['logged']
-    // }
+    component: HomeComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     path: 'conversation/:uid',
-    component: ConversationComponent
-    // canActivate: [
-    //   AuthGuard
-    // ],
-    // data: {
-    //   allowedRoles: ['logged']
-    // }
+    component: ConversationComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     path: 'profile',
-    component: ProfileComponent
-    // data:{
-    //   allowedRoles:['logged']
-    // }
+    component: ProfileComponent,
+    canActivate: [AuthenticationGuard]
   }
 ];
 

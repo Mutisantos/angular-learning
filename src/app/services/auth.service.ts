@@ -22,12 +22,12 @@ export class AuthService {
   // }
 
 
-  //Observable that will return any change from the User Session
+  // Observable that will return any change from the User Session
   getStatus() {
     return this.angularFireAuth.authState;
   }
 
-  //Ends the users session as a Promise
+  // Ends the users session as a Promise
   logOut() {
     return this.angularFireAuth.auth.signOut();
   }

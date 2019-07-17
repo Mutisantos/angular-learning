@@ -22,7 +22,7 @@
   <div class="blue accent-4 row">
     <br />
     <div class=" maincontent col s9 ">
-      <div class="col s12 l12 m12 center">
+      <div *ngIf="friend != null" class="col s12 l12 m12 center">
         <img
           id="user-status"
           src="assets/img/logo_live_{{ friend.status }}.png"
