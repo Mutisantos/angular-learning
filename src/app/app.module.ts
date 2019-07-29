@@ -18,6 +18,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     AngularFireDatabaseModule,
-    HttpClientModule
+    HttpClientModule,
+    ImageCropperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

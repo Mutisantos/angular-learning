@@ -34,5 +34,9 @@ export class UserService {
   updateUser(user: User) {
     return this.angularFireDatabase.object('/users/' + user.uid).set(user);
   }
+  // Other attributes can be handled as more nested URL with more details
+  setAvatar(avatar, uid){
+    return this.angularFireDatabase.object('/users/' + uid + '/avatar').set(avatar);
+  }
 
 }

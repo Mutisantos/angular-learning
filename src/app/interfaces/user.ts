@@ -9,4 +9,6 @@ export interface User {
     logged?: boolean;
     subnick?: string;
     status?: status;
+    // image url
+    avatar?: string;
 }

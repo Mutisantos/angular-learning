@@ -3,9 +3,9 @@
   <div class="row">
     <div class="col s3 m3 l3">
       <div class="avatarFrameBase">
-        <img
+        <img *ngIf="myuser != null"
           class="responsive-img circle"
-          src="assets/img/generic_avatar.png"
+          [src]="croppedImage || myuser.avatar || 'assets/img/generic_avatar.png'"
           id="homeAvatarPicture"
         />
         <span>Cambiar Foto</span>
@@ -13,7 +13,7 @@
           <div class="file-field input-field">
             <div class="btn blue accent-3">
               <span>Subir Avatar</span>
-              <input type="file" />
+              <input type="file" (change)="fileChangeEvent($event)" />
             </div>
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text" />
@@ -23,6 +23,19 @@
       </div>
     </div>
     <div *ngIf="myuser != null" class="col s9 m9 l9">
+
+      <image-cropper
+        [imageChangedEvent]="imageChangedEvent"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="1 / 1"
+        [resizeToWidth]="128"
+        format="png"
+        (imageCropped)="imageCropped($event)"
+        (imageLoaded)="imageLoaded()"
+        (cropperReady)="cropperReady()"
+        (loadImageFailed)="loadImageFailed()"
+      ></image-cropper>
+
       <div>
         <label fixed>Nick</label>
         <input [(ngModel)]="myuser.nick" type="text" class="form-control" />
@@ -33,7 +46,11 @@
       </div>
       <div>
         <label fixed>Email</label>
-        <input [(ngModel)]="myuser.email" type="email" disabledclass="form-control" />
+        <input
+          [(ngModel)]="myuser.email"
+          type="email"
+          disabledclass="form-control"
+        />
       </div>
       <div>
         <label fixed>Status</label>
@@ -46,8 +63,11 @@
             <option value="appear_offline">Desconectado</option>
           </select>
         </div>
-        <a (click)="updateProfile()" class="waves-effect waves-light btn col s6 offset-s3">
-            Actualizar
+        <a
+          (click)="updateProfile()"
+          class="waves-effect waves-light btn col s6 offset-s3"
+        >
+          Actualizar
         </a>
       </div>
     </div>
