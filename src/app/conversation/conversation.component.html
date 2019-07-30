@@ -1,4 +1,5 @@
-<div class="convContainer blue accent-5">
+<!-- Set an animated css class based on the boolean shake -->
+<div class="convContainer blue accent-5" [ngClass]="{ shaker: shake }">
   <br />
   <!-- 
   <div>
@@ -25,65 +26,83 @@
       <div *ngIf="friend != null" class="col s12 l12 m12 center">
         <img
           id="user-status"
-          src="assets/img/logo_live_{{ friend.status }}.png"
+          [src]="'assets/img/logo_live_' + friend.status + '.png'"
         />{{ friend.nick }}
       </div>
-      <div class="blue lighten-3 container">
+      <div class="blue lighten-3">
         <br />
-        <div id="chathistory">
-          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
-          qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-          dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-          quia non numquam eius modi tempora incidunt ut labore et dolore magnam
-          aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
-          exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex
-          ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in
-          ea voluptate velit esse quam nihil molestiae consequatur, vel illum
-          qui dolorem eum fugiat quo voluptas nulla pariatur?" "Sed ut
-          perspiciatis unde omnis iste natus error sit voluptatem accusantium
-          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-          inventore veritatis et quasi architecto beatae vitae dicta sunt
-          explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-          odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-          voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum
-          quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
-          eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-          voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem
-          ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi
-          consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate
-          velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum
-          fugiat quo voluptas nulla pariatur?"
+        <div id="chathistory" class="messageGroup">
+          <ng-container *ngFor="let m of conversationLog">
+            <div *ngIf="m.type != 'buzz'">
+              <br />
+              <b>{{ getUserNickById(m.sender) }}</b> dice: <br />
+              <span>{{ m.text }}</span>
+            </div>
+          </ng-container>
         </div>
         <div class="input-field col s12 blue lighten-4">
           <div class="row messagecontainer">
-            <textarea id="messagefield" class="materialize-textarea col s9">
+            <!-- The event in the textarea will be triggered when the Enter Key is pressed and released -->
+            <textarea
+              [(ngModel)]="message"
+              (keyup.enter)="sendMessage()"
+              id="messagefield"
+              class="materialize-textarea col s9"
+            >
             </textarea>
             <label for="messagefield"></label>
-            <button class="btn waves-effect waves-light col s3  btn-large submitbutton" type="submit" name="action">Enviar
-                <i class="material-icons right">send</i>
+            <button
+              class="btn-large waves-effect waves-light  light-blue darken-4 col s3  submitbutton"
+              type="submit"
+              name="action"
+              (click)="sendMessage()"
+            >
+              Enviar
+              <i class="material-icons center">send</i>
+            </button>
+            <button
+              class="btn-large waves-effect waves-light  light-blue darken-1 col s3  submitbutton"
+              type="submit"
+              name="action"
+              (click)="sendBuzz()"
+            >
+              Zumbido
+              <i class="material-icons center">room_service</i>
             </button>
           </div>
         </div>
       </div>
     </div>
-    <div class=" maincontent col s3 blue accent-4">
-      <img
-        class="responsive-img square avatarFrameOnLine"
-        src="assets/img/generic_avatar.png"
-        id="homeAvatarPicture"
-      />
-      <br />
-      <br />
-      <br />
-      <img
-        class="responsive-img square avatarFrameOnLine"
-        src="assets/img/logo_live_appear_offline.png"
-        id="homeAvatarPicture"
-      />
+    <div
+      *ngIf="friend != null"
+      class=" maincontent col s3 m3 l3 blue accent-4 section"
+    >
+      <div class="section">
+        <img
+          class="responsive-img square avatarFrameOnLine"
+          [src]="
+            friend.avatar || 'assets/img/logo_live_' + myuser.status + '.png'
+          "
+          id="friendAvatarPicture"
+        />
+      </div>
+
+      <div class="section">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
+      <div class="section">
+        <img
+          class="responsive-img square avatarFrameOnLine"
+          [src]="
+            myuser.avatar || 'assets/img/logo_live_' + myuser.status + '.png'
+          "
+          id="homeAvatarPicture"
+        />
+      </div>
     </div>
   </div>
 

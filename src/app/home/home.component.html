@@ -2,11 +2,11 @@
   <div class="cyan lighten-1">
     <div class="homeHeadContainer">
       <div class="row">
-        <div class="col s2 m2 l2">
+        <div *ngIf="myuser" class="col s2 m2 l2">
           <!-- <div class="avatarFrameOnLine"> -->
           <img
             class="responsive-img circle avatarFrameOnLine"
-            src="assets/img/generic_avatar.png"
+            [src]="myuser.avatar || 'assets/img/generic_avatar.png' "
             id="homeAvatarPicture"
           />
           <!-- </div> -->

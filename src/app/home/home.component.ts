@@ -28,7 +28,25 @@ export class HomeComponent implements OnInit {
       (error) => {console.log(error); }
     );
     this.getWeatherCondition();
-    // this.myuser = userService.getMyUser();
+    this.authService.getStatus().subscribe(
+      status => {
+        this.userService
+          .getUserById(status.uid)
+          .valueChanges()
+          .subscribe(
+            (data: User) => {
+              this.myuser = data;
+              console.log(this.myuser);
+            },
+            staterror => {
+              console.log(staterror);
+            }
+          );
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   typeExercise() {
