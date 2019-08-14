@@ -6,7 +6,7 @@
           <!-- <div class="avatarFrameOnLine"> -->
           <img
             class="responsive-img circle avatarFrameOnLine"
-            [src]="myuser.avatar || 'assets/img/generic_avatar.png' "
+            [src]="myuser.avatar || 'assets/img/generic_avatar.png'"
             id="homeAvatarPicture"
           />
           <!-- </div> -->
@@ -20,7 +20,9 @@
             <br />
             <span>Escribe un mensaje personal</span>
             <br />
-            <a class="waves-effect waves-teal" (click)="logout()">Cerrar Sesión</a>
+            <a class="waves-effect waves-teal" (click)="logout()"
+              >Cerrar Sesión</a
+            >
           </div>
         </div>
         <div *ngIf="weatherData != null" class="col s5 m5 l5 center">
@@ -28,9 +30,9 @@
             <span>{{ weatherData.city }}</span>
             <br />
             <img
-              id= {{weatherData.description}}
-              src= {{weatherData.icon}}
-              alt={{weatherData.description}}
+              id="{{ weatherData.description }}"
+              src="{{ weatherData.icon }}"
+              alt="{{ weatherData.description }}"
             />
             <br />
             <span>{{ weatherData.temp }} °C</span>
@@ -46,10 +48,32 @@
     <br />
     <!-- Angular directive container -->
     <h5>Contacts</h5>
-    <div class="input-field col s12">
-      <input type="text" placeholder="Search Friend" [(ngModel)]="query" />
-      <br />
+    <div class="row">
+      <div class="input-field col s11 m11 l11">
+        <input type="text" placeholder="Search Friend" [(ngModel)]="query" />
+      </div>
+      <div class="input-field col s1 m1 l1">
+        <!-- <a
+          class="btn-floating btn-large waves-effect waves-light cyan accent-3 modal-trigger"
+        >
+          <i class="material-icons">add</i>
+        </a> -->
+        <button data-target="modal1" class="btn modal-trigger">Modal</button>
+      </div>
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+            >Agree</a
+          >
+        </div>
+      </div>
     </div>
+    <br />
     <!-- Pipes can also be used in ng parameters (friends)|(search) and use class attributes (query) -->
     <div class="collection">
       <ng-container *ngFor="let user of friends | search: query; let i = index">

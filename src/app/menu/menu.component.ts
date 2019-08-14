@@ -19,6 +19,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.href = this.router.url;
+    this.changeColor();
   }
 
   public changeColor() {
