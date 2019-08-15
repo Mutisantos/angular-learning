@@ -30,7 +30,7 @@
               "src/styles.sass",
               "node_modules/materialize-css/sass/materialize.scss"
             ],
-            "scripts": []
+            "scripts": [ ]
           },
           "configurations": {
             "production": {
