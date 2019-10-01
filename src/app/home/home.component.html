@@ -52,26 +52,56 @@
       <div class="input-field col s11 m11 l11">
         <input type="text" placeholder="Search Friend" [(ngModel)]="query" />
       </div>
-      <div class="input-field col s1 m1 l1">
-        <!-- <a
-          class="btn-floating btn-large waves-effect waves-light cyan accent-3 modal-trigger"
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn teal darken-1"
+          data-toggle="modal"
+          data-target="#exampleModal"
         >
-          <i class="material-icons">add</i>
-        </a> -->
-        <button data-target="modal1" class="btn modal-trigger">Modal</button>
-      </div>
-      <!-- Modal Structure -->
-      <div id="modal1" class="modal">
-        <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
+          Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                A login test for modals
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="modal-footer">
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat"
-            >Agree</a
-          >
-        </div>
-      </div>
     </div>
     <br />
     <!-- Pipes can also be used in ng parameters (friends)|(search) and use class attributes (query) -->

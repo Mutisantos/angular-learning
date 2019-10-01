@@ -27,8 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass",
-              "node_modules/materialize-css/sass/materialize.scss"
+              "src/styles.sass"
             ],
             "scripts": [ ]
           },
