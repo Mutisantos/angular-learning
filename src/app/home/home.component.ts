@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { WeatherRESTConsumerService } from '../services/weather-restconsumer.service';
 import { flatMap } from 'rxjs/operators';
 import { Weather } from '../interfaces/weather';
+import { RequestService } from '../services/request.service';
 // tslint:disable:no-inferrable-types
 // tslint:disable:prefer-const
 @Component({
@@ -17,10 +18,12 @@ export class HomeComponent implements OnInit {
   friends: User[];
   myuser: User;
   weatherData: Weather;
+  friendEmail: string;
   // Define a variable that will be represented by an ngModel input
   query: string = '';
   constructor(private userService: UserService, private authService: AuthService,
-              private router: Router, private weatherService: WeatherRESTConsumerService) {
+              private router: Router, private weatherService: WeatherRESTConsumerService,
+              private requestService: RequestService) {
     // this.typeExercise();
     // Get an observable from the user registries in firebase Database, subscribe to changing values of the observable
     userService.getUsers().valueChanges().subscribe(
@@ -98,4 +101,21 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+
+  sendRequest( ) {
+    const request = {
+      timestamp: Date.now(),
+      receiverEmail: this.friendEmail,
+      senderEmail: this.myuser.uid,
+      status: 'pending'
+    };
+    // The request will be sent to the service and with the "then()" will show an alert once the message was sent or error otherwise
+    this.requestService.createFriendRequest(request).then(() => {
+      alert('Solicitud enviada para:' + request.receiverEmail);
+    }).catch((error) => {
+      alert('Error enviando solicitud para:' + request.receiverEmail);
+      console.log(error);
+    });
+  }
 }
