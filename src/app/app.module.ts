@@ -19,6 +19,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { RequestComponent } from './modals/request/request.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     ConversationComponent,
     ProfileComponent,
     MenuComponent,
-    SearchPipe, FooterComponent
+    SearchPipe, FooterComponent, RequestComponent
   ],
   imports: [
     BrowserModule,
