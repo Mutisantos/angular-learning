@@ -9,13 +9,18 @@ export interface PromptModel {
 @Component({
   selector: 'app-request',
   templateUrl: './request.component.html',
-  styleUrls: ['./request.component.css']
+  styleUrls: ['./request.component.sass']
 })
-export class RequestComponent implements PromptModel {
+export class RequestComponent implements OnInit {
   scope: any;
   shouldAdd: 'yes';
   currentRequest: any;
   constructor(private userService: UserService, private requestsService: RequestService) {
+  }
+
+  setCurrentRequest(scope, request) {
+    this.scope = scope;
+    this.currentRequest = request;
   }
 
   accept() {
@@ -45,4 +50,6 @@ export class RequestComponent implements PromptModel {
 
   close() {
   }
+
+  ngOnInit() {}
 }

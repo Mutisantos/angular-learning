@@ -43,7 +43,7 @@ import { RequestComponent } from './modals/request/request.component';
     HttpClientModule,
     ImageCropperModule
   ],
-  providers: [],
+  providers: [RequestComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

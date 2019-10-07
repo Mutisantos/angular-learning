@@ -24,7 +24,8 @@ export class RequestService {
 
   // Get all the requests given a certain email
   getRequestForEmail(email) {
-    const cleanEmail = email.receiverEmail.replace('.', ',');
+    console.log(email);
+    const cleanEmail = email.replace('.', ',');
     return this.angularFireData.object('requests/' + cleanEmail);
   }
 }
