@@ -5,6 +5,7 @@ import { UserService } from './services/user.service';
 import { RequestService } from './services/request.service';
 import { User } from './interfaces/user';
 import { RequestComponent } from './modals/request/request.component';
+import { DialogService } from 'ng2-bootstrap-modal';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ export class AppComponent {
     private authService: AuthService,
     private userService: UserService,
     private requestService: RequestService,
-    private requestComponent: RequestComponent
+    private requestComponent: RequestComponent,
+    private dialogService: DialogService
   ) {
     this.authService.getStatus().subscribe(status => {
       this.userService
@@ -33,14 +35,17 @@ export class AppComponent {
           this.requestService.getRequestForEmail(this.user.email).valueChanges().subscribe(
             (requests: any[]) => {
               this.requests = Object.entries(requests);
-              console.log(requests);
               // filter requests
               this.requests = this.requests.filter( (r) => {
                 return r.status !== 'accepted' && r.status !== 'rejected';
               });
               this.requests.forEach((r) => {
                 if (this.mailsShow.indexOf(r.sender) === -1) {
-                  this.mailsShow.push(r.sender);
+                  console.log(r.sender);
+                  console.log(r[0]);
+                  console.log(r[1]);
+                  this.mailsShow.push(r[1].senderEmail);
+                  this.dialogService.addDialog(RequestComponent, {scope: this, currentRequest: r[1]});
                   this.requestComponent.setCurrentRequest(this, r);
                 }
               });

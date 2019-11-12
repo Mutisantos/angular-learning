@@ -39,7 +39,7 @@ export class UserService {
     return this.angularFireDatabase.object('/users/' + uid + '/avatar').set(avatar);
   }
 
-  addFriend(userId, friendId) {
+  addFriend(userId, friendId) { // Add the users as friends mutually in Firebase. Each one has a list of all friends references
     this.angularFireDatabase.object('users/' + userId + '/friends/' + friendId).set(friendId);
     return this.angularFireDatabase.object('users/' + friendId + '/friends/' + userId).set(userId);
   }

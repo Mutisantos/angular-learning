@@ -20,6 +20,7 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { RequestComponent } from './modals/request/request.component';
+import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 
 @NgModule({
   declarations: [
@@ -41,9 +42,11 @@ import { RequestComponent } from './modals/request/request.component';
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     AngularFireDatabaseModule,
     HttpClientModule,
-    ImageCropperModule
+    ImageCropperModule,
+    BootstrapModalModule.forRoot({container: document.body}) // Modals module for bootstrap
   ],
   providers: [RequestComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [RequestComponent] // Required for bootstrap to find this Component
 })
 export class AppModule { }

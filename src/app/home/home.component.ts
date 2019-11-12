@@ -107,7 +107,8 @@ export class HomeComponent implements OnInit {
     const request = {
       timestamp: Date.now(),
       receiverEmail: this.friendEmail,
-      senderEmail: this.myuser.uid,
+      senderEmail: this.myuser.email.replace('.', ','),
+      sender: this.myuser.uid,
       status: 'pending'
     };
     // The request will be sent to the service and with the "then()" will show an alert once the message was sent or error otherwise

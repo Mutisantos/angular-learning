@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../services/user.service';
 import {RequestService} from '../../services/request.service';
+import { DialogService, DialogComponent } from 'ng2-bootstrap-modal';
 
 export interface PromptModel {
   scope: any;
@@ -11,11 +12,12 @@ export interface PromptModel {
   templateUrl: './request.component.html',
   styleUrls: ['./request.component.sass']
 })
-export class RequestComponent implements OnInit {
+export class RequestComponent extends DialogComponent<PromptModel, any> implements PromptModel {
   scope: any;
-  shouldAdd: 'yes';
   currentRequest: any;
-  constructor(private userService: UserService, private requestsService: RequestService) {
+  shouldAdd: 'yes';
+  constructor(public dialogService: DialogService, private userService: UserService, private requestsService: RequestService) {
+    super(dialogService);
   }
 
   setCurrentRequest(scope, request) {
@@ -23,12 +25,12 @@ export class RequestComponent implements OnInit {
     this.currentRequest = request;
   }
 
-  accept() {
+  accept() { // Operate the request based on the option selected by the user
     if (this.shouldAdd === 'yes') {
       this.requestsService.setRequestStatus(this.currentRequest, 'accepted').then((data) => {
         console.log(data);
         this.userService.addFriend(this.scope.user.uid, this.currentRequest.sender).then(() => {
-          alert('Solicitud aceptada con eexito');
+          alert('Solicitud aceptada con éxito');
         });
       }).catch((error) => {
         console.log(error);
@@ -51,5 +53,4 @@ export class RequestComponent implements OnInit {
   close() {
   }
 
-  ngOnInit() {}
 }
