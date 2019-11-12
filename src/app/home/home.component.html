@@ -65,17 +65,10 @@
     <br />
     <!-- Pipes can also be used in ng parameters (friends)|(search) and use class attributes (query) -->
     <div class="collection">
-      <ng-container *ngFor="let user of friends | search: query; let i = index">
-        <!-- <div *ngIf="user.logged"> -->
-        <a routerLink="/conversation/{{ user.uid }}" class="collection-item">
-          <img
-            id="user-status"
-            src="assets/img/logo_live_{{ user.status }}.png"
-            alt="user status"
-          />
-          {{ i + 1 }}:{{ user.nick }}:{{ user.email }}
-        </a>
-        <!-- </div> -->
+      <ng-container *ngIf="myuser && myuser.friends"> 
+        <!-- Using the selector of a certain component  shows the component within the HTML of this one -->
+        <app-contact  *ngFor="let user of myuser.friends | search: query;" [uid]="user">
+        </app-contact>
       </ng-container>
     </div>
   </div>

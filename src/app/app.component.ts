@@ -37,7 +37,7 @@ export class AppComponent {
               this.requests = Object.entries(requests);
               // filter requests
               this.requests = this.requests.filter( (r) => {
-                return r.status !== 'accepted' && r.status !== 'rejected';
+                return r[1].status !== 'accepted' && r[1].status !== 'rejected';
               });
               this.requests.forEach((r) => {
                 if (this.mailsShow.indexOf(r.sender) === -1) {

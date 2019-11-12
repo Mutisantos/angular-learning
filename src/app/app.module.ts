@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { RequestComponent } from './modals/request/request.component';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
     ConversationComponent,
     ProfileComponent,
     MenuComponent,
-    SearchPipe, FooterComponent, RequestComponent
+    SearchPipe, FooterComponent, RequestComponent, ContactComponent
   ],
   imports: [
     BrowserModule,

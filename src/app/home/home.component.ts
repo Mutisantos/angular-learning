@@ -26,10 +26,10 @@ export class HomeComponent implements OnInit {
               private requestService: RequestService) {
     // this.typeExercise();
     // Get an observable from the user registries in firebase Database, subscribe to changing values of the observable
-    userService.getUsers().valueChanges().subscribe(
-      (data: User[]) => {console.log(data); this.friends = data; },
-      (error) => {console.log(error); }
-    );
+    // userService.getUsers().valueChanges().subscribe(
+    //   (data: User[]) => {console.log(data); this.friends = data; },
+    //   (error) => {console.log(error); }
+    // );
     this.getWeatherCondition();
     this.authService.getStatus().subscribe(
       status => {
@@ -39,7 +39,10 @@ export class HomeComponent implements OnInit {
           .subscribe(
             (data: User) => {
               this.myuser = data;
-              console.log(this.myuser);
+              if ( this.myuser.friends) {
+                this.myuser.friends = Object.values(this.myuser.friends);
+                console.log(this.myuser.friends);
+              }
             },
             staterror => {
               console.log(staterror);

@@ -11,4 +11,5 @@ export interface User {
     status?: status;
     // image url
     avatar?: string;
+    friends?: any;
 }
