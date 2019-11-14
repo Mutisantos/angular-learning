@@ -1,3 +1,6 @@
+// npm run electron : Run the electron script that opens a new window of the project as a Electron App
+// electron-packager ./ Platzingery --platform=win32 --icon src\assets\img\logo_live.ico : Package the project as an electron App that build an exportable version. 
+
 const {app, BrowserWindow} = require('electron');
 const path = require('path');
 const url = require('url');
